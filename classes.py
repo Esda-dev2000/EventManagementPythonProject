@@ -28,7 +28,7 @@ class Event(EventManager):
         print(f'Location: {self.location}')
         print('Attendees:')
         for attendee in self.attendees:
-            print(f'{attendee.name} - {attendee.phone}')
+            attendee.display_details()
 
     def edit_details(self, new_name, new_date, new_location):
         # method to edit events details

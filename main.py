@@ -1,5 +1,5 @@
 # Importing necessary modules
-from classes import Event, Attendee
+from classes import *
 from functions import (
     create_event, list_all_events, list_individual_event,
     edit_event, delete_event, list_attendees,
@@ -8,8 +8,8 @@ from functions import (
 )
 
 def main():
-    # Reads events and 2attendees from CSV file
-    events = read_events_from_csv('events.csv', Event, Attendee)
+    # Reads events and attendees from CSV file
+    events = read_events_from_csv('events.csv')
 
     # While loop for the menu
     while True:
@@ -48,11 +48,12 @@ def main():
             delete_attendee(events)
         elif user_choice == '9':
             # Write events and attendees to CSV file before exiting
-            write_events_to_csv('events.csv', events, [])
+            write_events_to_csv('events.csv', events)
             print('Exiting the event application... Goodbye!')
             break
         else:
             print('Invalid choice. Please enter a number between 1 and 9.')
 
+# conditional block - It Allows  to Execute Code When the File Runs as a Script, but Not When It’s Imported as a Module
 if __name__ == '__main__':
     main()

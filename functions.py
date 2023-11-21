@@ -1,6 +1,6 @@
 # Making my function
 import csv
-from classes import Attendee
+from classes import *
 
 # base/parent class
 class EventManager:
@@ -17,7 +17,6 @@ class EventManager:
 # a function = operates OUTSIDE a class
 # function to create a new event
 def create_event(events, Event):
-
     try:
         event_id = int(input(f'Enter {Event.__name__} ID: '))
         name = input(f'Enter {Event.__name__} Name: ')
@@ -157,57 +156,81 @@ def delete_attendee(events):
         print('Invalid input. Please enter valid values.')
 
 # Function to read events and attendees from a CSV file
-def read_events_from_csv(eventfile, Event, Attendee):
+def read_events_from_csv(eventfile):
     events = []
 
     try:
         # Try to open the file for reading
         with open(eventfile, mode='r') as file:
+            # Create a CSV reader object
             reader = csv.DictReader(file)
+
+            # Iterate over each row in the CSV file
             for row in reader:
+                # Extract event details from the row
                 event_id = int(row['event_id'])
                 event_name = row['event_name']
                 date = row['date']
                 location = row['location']
 
-                # using a generator expression = Check if the event already exists in the list
-                event = next((event for event in events if event.event_id == event_id), None)
+                # Create an Event object and append it to the events list
+                event = Event(event_id, event_name, date, location)
+                events.append(event)
 
-                if not event:
-                    event = Event(event_id, event_name, date, location)
-                    events.append(event)
-
+                # Extract attendee details from the row
                 attendee_id = int(row['attendee_id'])
                 attendee_name = row['attendee_name']
                 phone = row['phone']
 
+                # Create an Attendee object and add it to the event's attendees
                 attendee = Attendee(attendee_id, attendee_name, phone)
                 event.add_attendee(attendee)
 
     except FileNotFoundError:
-        # If the file doesn't exist, create it with headers
-        with open('events.csv', 'a', newline='') as file:
-            fieldnames = ['event_id', 'event_name', 'date', 'location', 'attendee_id', 'attendee_name', 'phone']
-            writer = csv.DictWriter(file, fieldnames=fieldnames)
+        # If the file is not found, create an empty CSV file
+        with open(eventfile, mode='w', newline='') as file:
+            # Create a CSV writer object
+            writer = csv.DictWriter(file, fieldnames=['event_id', 'event_name', 'date', 'location', 'attendee_id',
+                                                      'attendee_name', 'phone'])
+            # Write the header to the CSV file
             writer.writeheader()
 
+        # Print the events list before returning
+    print("Events after reading:", events)
+
+    # Return the list of events
     return events
 
 # Function to write events and attendees to a CSV file
 def write_events_to_csv(eventfile, events):
-    with open(eventfile, 'w', newline='') as file:
-        fieldnames = ['event_id', 'event_name', 'date', 'location', 'attendee_id', 'attendee_name', 'phone']
-        writer = csv.DictWriter(file, fieldnames=fieldnames)
-        writer.writeheader()
+    try:
+        # Open the file for writing (newline='' ensures cross-platform compatibility)
+        with open(eventfile, 'w', newline='') as file:
+            # Create a CSV writer object with the specified fieldnames
+            writer = csv.DictWriter(file, fieldnames=['event_id', 'event_name', 'date', 'location', 'attendee_id',
+                                                      'attendee_name', 'phone'])
 
-        for event in events:
-            for attendee in event.attendees:
-                writer.writerow({
-                    'event_id': event.event_id,
-                    'event_name': event.name,
-                    'date': event.date,
-                    'location': event.location,
-                    'attendee_id': attendee.event_id,
-                    'attendee_name': attendee.name,
-                    'phone': attendee.phone
-                })
+            # Write the header to the CSV file
+            writer.writeheader()
+
+            # Iterate over each event in the events list
+            for event in events:
+                # Iterate over each attendee in the event's attendees list
+                for attendee in event.attendees:
+                    # Write a row to the CSV file for each event and attendee
+                    data = {
+                        'event_id': event.event_id,
+                        'event_name': event.name,
+                        'date': event.date,
+                        'location': event.location,
+                        'attendee_id': attendee.event_id,
+                        'attendee_name': attendee.name,
+                        'phone': attendee.phone
+                    }
+                    print(f'Writing data: {data}')
+                    writer.writerow(data)
+
+        print(f'Events written to {eventfile} successfully.')
+
+    except Exception as e:
+        print(f'Error writing to {eventfile}: {e}')
