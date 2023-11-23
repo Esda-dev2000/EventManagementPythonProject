@@ -1,0 +1,59 @@
+INFO:root:Event created successfully.
+INFO:root:Function create_event called with arguments ([<classes.Event object at 0x000002B0FE6E4590>], <class 'classes.Event'>) and keyword arguments {}
+INFO:root:Method add_attendee called with arguments (<classes.Event object at 0x000002B0FE6E4590>, <classes.Attendee object at 0x000002B0FEA3F7D0>) and keyword arguments {}
+INFO:root:Method add_attendee called with arguments (<classes.Event object at 0x000002B0FE6E4590>, <classes.Attendee object at 0x000002B0FEA4E250>) and keyword arguments {}
+INFO:root:ID: 1
+INFO:root:Name: intro to investing
+INFO:root:Date: 2023-11-12
+INFO:root:Location: new york
+INFO:root:Attendees:
+INFO:root:ID: 101
+INFO:root:Name: esther
+INFO:root:Phone: 07506287818
+INFO:root:Method display_details called with arguments (<classes.Attendee object at 0x000002B0FEA3F7D0>,) and keyword arguments {}
+INFO:root:ID: 102
+INFO:root:Name: faiza
+INFO:root:Phone: 07506287819
+INFO:root:Method display_details called with arguments (<classes.Attendee object at 0x000002B0FEA4E250>,) and keyword arguments {}
+INFO:root:Method display_details called with arguments (<classes.Event object at 0x000002B0FE6E4590>,) and keyword arguments {}
+INFO:root:ID: 1
+INFO:root:Name: intro to investing
+INFO:root:Date: 2023-11-12
+INFO:root:Location: new york
+INFO:root:Attendees:
+INFO:root:ID: 101
+INFO:root:Name: esther
+INFO:root:Phone: 07506287818
+INFO:root:Method display_details called with arguments (<classes.Attendee object at 0x000002B0FEA3F7D0>,) and keyword arguments {}
+INFO:root:ID: 102
+INFO:root:Name: faiza
+INFO:root:Phone: 07506287819
+INFO:root:Method display_details called with arguments (<classes.Attendee object at 0x000002B0FEA4E250>,) and keyword arguments {}
+INFO:root:Method display_details called with arguments (<classes.Event object at 0x000002B0FE6E4590>,) and keyword arguments {}
+INFO:root:Exiting the event application... Goodbye!
+INFO:root:Function main called with arguments () and keyword arguments {}
+INFO:root:Event created successfully.
+INFO:root:Function create_event called with arguments ([<classes.Event object at 0x000002000AFF45D0>], <class 'classes.Event'>) and keyword arguments {}
+INFO:root:Method add_attendee called with arguments (<classes.Event object at 0x000002000AFF45D0>, <classes.Attendee object at 0x000002000B34F850>) and keyword arguments {}
+INFO:root:Exiting the event application... Goodbye!
+INFO:root:Function main called with arguments () and keyword arguments {}
+INFO:root:Event created successfully.
+INFO:root:Function create_event called with arguments ([<classes.Event object at 0x000002729FE4EA90>], <class 'classes.Event'>) and keyword arguments {}
+INFO:root:Method add_attendee called with arguments (<classes.Event object at 0x000002729FE4EA90>, <classes.Attendee object at 0x000002729FE6D350>) and keyword arguments {}
+INFO:root:Exiting the event application... Goodbye!
+INFO:root:Function main called with arguments () and keyword arguments {}
+INFO:root:Event created successfully.
+INFO:root:Function create_event called with arguments ([<classes.Event object at 0x000001F8545EEA90>], <class 'classes.Event'>) and keyword arguments {}
+INFO:root:Method add_attendee called with arguments (<classes.Event object at 0x000001F8545EEA90>, <classes.Attendee object at 0x000001F85460D350>) and keyword arguments {}
+INFO:root:ID: 11
+INFO:root:Name: esther
+INFO:root:Date: 2023-12-12
+INFO:root:Location: london
+INFO:root:Attendees:
+INFO:root:ID: 101
+INFO:root:Name: esther
+INFO:root:Phone: 07506287827
+INFO:root:Method display_details called with arguments (<classes.Attendee object at 0x000001F85460D350>,) and keyword arguments {}
+INFO:root:Method display_details called with arguments (<classes.Event object at 0x000001F8545EEA90>,) and keyword arguments {}
+INFO:root:Exiting the event application... Goodbye!
+INFO:root:Function main called with arguments () and keyword arguments {}
